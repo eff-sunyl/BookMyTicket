@@ -8,18 +8,19 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.ecom.bookmyticket.repository.Booking_usersRepository;
-import com.ecom.bookmyticket.service.Booking_usersService;
-import com.ecom.bookmyticket.model.Booking_users;
-
+import com.ecom.bookmyticket.repository.Booking_mappingRepository;
+import com.ecom.bookmyticket.repository.Booking_ticketRepository;
+import com.ecom.bookmyticket.service.Booking_ticketService;
+import com.ecom.bookmyticket.model.Booking_mapping;
+import com.ecom.bookmyticket.model.Booking_ticket;
 
 @RestController
-@RequestMapping("bmtusers")
-public class Booking_usersController {
-	
+@RequestMapping("ticket")
 
+public class Booking_ticketController {
+	
 	@Autowired
-	Booking_usersService bus;
+	Booking_ticketRepository btr;
 	
 	@GetMapping(value="/demo")
 	public String getDemo()
@@ -27,12 +28,11 @@ public class Booking_usersController {
 	 return "Hello jerk";
 	}
 	
-	@PostMapping(value="/createUser")
-	public int createUser(@RequestBody Booking_users bu)
+	@PostMapping(value="/createTicket")
+	public int createMapping(@RequestBody Booking_ticket bt)
 	{
-		return bus.createUser(bu);
+		return btr.createTicket(bt);
 	}
-	
 	
 	
 

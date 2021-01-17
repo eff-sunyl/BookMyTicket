@@ -8,32 +8,29 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.ecom.bookmyticket.repository.Booking_usersRepository;
-import com.ecom.bookmyticket.service.Booking_usersService;
+import com.ecom.bookmyticket.repository.Movie_masterRepository;
+import com.ecom.bookmyticket.service.Movie_masterService;
 import com.ecom.bookmyticket.model.Booking_users;
-
+import com.ecom.bookmyticket.model.Movie_master;
 
 @RestController
-@RequestMapping("bmtusers")
-public class Booking_usersController {
-	
+@RequestMapping("movies")
+public class Movie_masterController {
 
 	@Autowired
-	Booking_usersService bus;
+	Movie_masterService mms;
 	
+
 	@GetMapping(value="/demo")
 	public String getDemo()
 	{
 	 return "Hello jerk";
 	}
 	
-	@PostMapping(value="/createUser")
-	public int createUser(@RequestBody Booking_users bu)
+	@PostMapping(value="/createMovie")
+	public int createMovie(@RequestBody Movie_master mm)
 	{
-		return bus.createUser(bu);
+		return mms.createMovie(mm);
 	}
 	
-	
-	
-
 }
